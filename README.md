@@ -35,5 +35,25 @@
 
 <br>
 
+## 프로젝트 구조
+- public
+  - index.html이 들어있다
+
+<br>
+
+## 클래스형 vs. 함수형
+
+<br>
+
+## 배포하기
+`npm run build`
+
+<br>
+
+##
+컴포넌트는 반드시 하나의 최상위 태그로 시작해야 한다
+
+<br>
+
 ## JSX
 - JavaScript XML
