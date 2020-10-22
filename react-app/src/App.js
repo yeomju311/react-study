@@ -10,7 +10,9 @@ class App extends Component {
     super(props);
     // 상위 컴포넌트 App의 값을 하위 컴포넌트 Subject에 넘기는 것은 가능하다
     this.state = {
+      mode: 'read',
       subject:{title:'WEB', sub:'World Wide Web!'},
+      welcome: {title: 'Welcome', desc: 'Hello, React!!!'},
       contents: [
         {id: 1, title: 'HTML', desc: 'HTML is HyperText ...'},
         {id: 2, title: 'CSS', desc: 'CSS is for design'},
@@ -19,16 +21,37 @@ class App extends Component {
     }
   }
   render() {
+    console.log('App render');
+    var _title, _desc = null;
+    if (this.state.mode === 'welcome') {
+      _title = this.state.welcome.title;
+      _desc = this.state.welcome.desc;
+    } else if (this.state.mode === 'read') {
+      _title = this.state.contents[0].title;
+      _desc = this.state.contents[0].desc;
+    }
+    console.log('render', this);
     return (
       <div className="App">
         {/* Hello, React!! */}
-        <Subject
+        {/* <Subject
           title={this.state.subject.title}
           sub={this.state.subject.sub}>
-        </Subject>
+        </Subject> */}
+        <header>
+          <h1><a href="/" onClick={function(e){
+            console.log(e);
+            e.preventDefault();
+            // this.state.mode = 'welcome';
+            this.setState({
+              mode: 'welcome'
+            });
+          }.bind(this)}>{this.state.subject.title}</a></h1>
+          {this.state.subject.sub}
+        </header>
         <Subject title="React" sub="For UI"></Subject>
         <TOC data={this.state.contents}></TOC>
-        <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
+        <Content title={_title} desc={_desc}></Content>
       </div>
     );
   }
