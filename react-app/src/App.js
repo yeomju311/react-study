@@ -11,6 +11,7 @@ class App extends Component {
     // 상위 컴포넌트 App의 값을 하위 컴포넌트 Subject에 넘기는 것은 가능하다
     this.state = {
       mode: 'read',
+      selected_content_id: 2,
       subject:{title:'WEB', sub:'World Wide Web!'},
       welcome: {title: 'Welcome', desc: 'Hello, React!!!'},
       contents: [
@@ -27,18 +28,30 @@ class App extends Component {
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
     } else if (this.state.mode === 'read') {
-      _title = this.state.contents[0].title;
-      _desc = this.state.contents[0].desc;
+      var i = 0;
+      while(i < this.state.contents.length) {
+        var data = this.state.contents[i];
+        if (data.id === this.state.selected_content_id) {
+          _title = data.title;
+          _desc = data.desc;
+          break;
+        }
+        i = i + 1;
+      }
     }
     console.log('render', this);
     return (
       <div className="App">
         {/* Hello, React!! */}
-        {/* <Subject
+        <Subject
           title={this.state.subject.title}
-          sub={this.state.subject.sub}>
-        </Subject> */}
-        <header>
+          sub={this.state.subject.sub}
+          onChangePage={function(){
+            this.setState({mode:'welcome'});
+          }.bind(this)}
+        >
+        </Subject>
+        {/* <header>
           <h1><a href="/" onClick={function(e){
             console.log(e);
             e.preventDefault();
@@ -48,9 +61,16 @@ class App extends Component {
             });
           }.bind(this)}>{this.state.subject.title}</a></h1>
           {this.state.subject.sub}
-        </header>
-        <Subject title="React" sub="For UI"></Subject>
-        <TOC data={this.state.contents}></TOC>
+        </header> */}
+        {/* <Subject title="React" sub="For UI"></Subject> */}
+        <TOC
+          onChangePage={function(id) {
+            this.setState({
+              mode:'read',
+              selected_content_id: Number(id)
+            });
+          }.bind(this)} data={this.state.contents}
+        ></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );
