@@ -89,3 +89,27 @@
 ###
 - props는 class, function style에서 다 쓸 수 있었지만
 - state는 클래스에서만 가능했다
+
+<br>
+
+## react router dom
+`npm install react-router-dom`
+- 사용자가 주소로 들어왔을 때 그에 맞는 적당한 페이지를 보여준다
+
+<br>
+
+### BrowserRouter
+- 리액트 라우터 돔을 적용하고 싶은 컴포넌트의 최상위 컴포넌트를 감싸주는 최상위 컴퍼넌트
+### Route
+- `<Route path="/"><Component></Component></Route>`
+- path에 해당하는 주소로 접근하면 그에 맞는 컴포넌트를 띄워준다
+### Switch
+### Link
+- `<Link to="/">hello</Link>`
+- to 뒤에 쓰여진 주소로 이동한다
+### HashRouter
+- 어떤 path로 들어오건 간에 루트 페이지에 해당하는 html 파일을 서비스할 수 있다면 사용
+### NavLink
+- `<NavLink to="/">hello</NavLink>`
+- 선택된 라우터만 `class="active"` 로 설정된다
+- 사용자가 어디에 접근하는지 쉽게 확인할 수 있다
