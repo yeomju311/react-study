@@ -72,3 +72,16 @@
 
 ## JSX
 - JavaScript XML
+
+<br>
+
+## React class vs. function style
+### class
+- react의 기능을 풀파워로 사용할 수 있다
+- class 문법 알아야 되고 장황하다
+### function
+- 함수의 문법만 알면 사용할 수 있다
+- 기능이 부족하다
+  - hook
+    - 함수 방식에서도 내부적으로 상태를 다룰 수 있게 되었고
+    - 컴포넌트의 라이프 사이클에 따른 것을 할 수 있게 되었다
