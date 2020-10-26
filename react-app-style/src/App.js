@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
@@ -12,10 +12,19 @@ function App() {
 }
 
 function FuncComp(props) {
+  var numberState = useState(props.initNumber);
+  var number = numberState[0];
+  var setNumber = numberState[1];
+  console.log('numberState', numberState);
   return (
     <div className="container">
       <h2>function style component</h2>
-      <p>Number : {props.initNumber}</p>
+      <p>Number : {number}</p>
+      <input type="button" value="random" onClick={
+          function(){
+            setNumber(Math.random());
+          }
+        }></input>
     </div>
   );
 }
