@@ -25,11 +25,30 @@ function FuncComp(props) {
   // 위의 3줄과 같은 의미의 코드
   var [_date, setDate] = useState((new Date()).toString());
 
+  useEffect(function() {
+    console.log('%cfunc => useEffect number (componentDidMount)' + (++funcId), funcStyle);
+    document.title = number;
+    return function() {
+      console.log('%cfunc => useEffect return (componentWillUnmount)' + (++funcId), funcStyle);
+    }
+  }, []); // componentDidMount일 때만 호출
+
   // side effect
   useEffect(function() {
-    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate)' + (++funcId), funcStyle);
-    document.title = number + ' : ' + _date;
-  });
+    console.log('%cfunc => useEffect number (componentDidMount & componentDidUpdate)' + (++funcId), funcStyle);
+    document.title = number;
+    return function() {
+      console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate)' + (++funcId), funcStyle);
+    }
+  }, [number]);
+
+  useEffect(function() {
+    console.log('%cfunc => useEffect _date (componentDidMount & componentDidUpdate)' + (++funcId), funcStyle);
+    document.title = _date;
+    return function() {
+      console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate)' + (++funcId), funcStyle);
+    }
+  }, [_date]);
 
   console.log('%cfunc => render' + (++funcId), funcStyle);
   return (
