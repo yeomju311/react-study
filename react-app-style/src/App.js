@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
@@ -11,19 +11,27 @@ function App() {
   );
 }
 
+var funcStyle = 'color: blue';
+var funcId = 0;
 function FuncComp(props) {
   var numberState = useState(props.initNumber);
   var number = numberState[0];
   var setNumber = numberState[1];
   
-  var dateState = useState((new Date).toString());
-  var _date = dateState[0];
-  var setDate = dateState[1];
+  // var dateState = useState((new Date).toString());
+  // var _date = dateState[0];
+  // var setDate = dateState[1];
 
   // 위의 3줄과 같은 의미의 코드
-  // var [_date, setDate] = usetState((new Date()).toString());
+  var [_date, setDate] = useState((new Date()).toString());
 
-  console.log('numberState', numberState);
+  // side effect
+  useEffect(function() {
+    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate)' + (++funcId), funcStyle);
+    document.title = number + ' : ' + _date;
+  });
+
+  console.log('%cfunc => render' + (++funcId), funcStyle);
   return (
     <div className="container">
       <h2>function style component</h2>
