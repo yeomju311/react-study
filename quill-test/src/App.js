@@ -6,56 +6,7 @@ import Quill from 'quill';
 import { findDOMNode } from 'react-dom';
 import { createContext, useEffect } from 'react';
 
-
-const formcontainer = {
-  width: "500px",
-}
-
-const row = {
-  marginTop: "15px",
-}
-const formgroup = {
-  paddingLeft: "15px",
-  paddingRight: "15px",
-}
-const btn = {
-  marginLeft: "15px",
-}
-
-const changelink = {
-  backgroundColor: "#000",
-  borderBottomLeftRadius: "6px",
-  borderBottomRightRadius: "6px",
-  bottom: "0",
-  color: "#fff",
-  opacity: "0.8",
-  padding: "4px",
-  position: "absolute",
-  textAlign: "center",
-  width: "150px",
-}
-
-const img = {
-  width: "150px",
-}
-
-const editorcontainer = {
-  height: "130px"
-}
-
 class App extends React.Component {
-  // var quill = new Quill('#editor-container', {
-  //   modules: {
-  //     toolbar: [
-  //       ['bold', 'italic'],
-  //       ['link', 'blockquote', 'code-block', 'image'],
-  //       [{ list: 'ordered' }, { list: 'bullet' }]
-  //     ]
-  //   },
-  //   placeholder: 'Compose an epic...',
-  //   theme: 'snow'
-  // });
-
   constructor(props) {
     super(props);
 
@@ -74,18 +25,12 @@ class App extends React.Component {
 
   getContents(text) {
     console.log('text', text);
+    this.setState({ data: text });
   }
+
   send(e) {
     e.preventDefault();
-    // var form = document.querySelector('form');
-    // form = findDOMNode(this.refs.form);
-    // Populate hidden form on submit
-    // var about = document.querySelector('input[name=about]');
-    // this.about.value = JSON.stringify(quill.getContents());
-
-    // console.log("Submitted", $(this.form).serialize(), $(this.form).serializeArray());
     console.log('submit');
-    // No back end to actually submit to!
     alert('Open the console to see the submit data!')
     return false;
   };
