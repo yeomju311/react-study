@@ -113,3 +113,36 @@
 - `<NavLink to="/">hello</NavLink>`
 - 선택된 라우터만 `class="active"` 로 설정된다
 - 사용자가 어디에 접근하는지 쉽게 확인할 수 있다
+
+
+# Redux
+- A predictable state container for JavaScript apps.
+- 애플리케이션의 복잡성을 획기적으로 낮춰서 우리의 코드가 어떤 결과를 가져올지 예측 가능하게 만들어주는 도구
+- Single Source of Truth : 하나의 상태를 갖는다
+- dispatcher, reducer 등을 통해서만 state를 수정할 수 있다
+- 데이터를 외부에서 직접적으로 접근하는 것을 막음으로써 의도치 않게 state 값이 바뀌는 것을 막음으로써 애플리케이션을 보다 예측 가능하게 만든다
+- undo/redo를 쉽게 할 수 있다
+  - 각각의 state 값을 생성할 때 철저하게 통제하고, 데이터를 만들 때 원본을 만드는 것이 아니라 복제하고, 복제한 데이터를 수정하고 그것을 원본으로 만드는 방법을 채택하기 때문에, 각각의 변화가 서로에게 전혀 영향을 주지 않고 독립적인 상태를 유지할 수 있고, 이러면 unde/redo 등 매우 쉽게 처리할 수 있다
+- 현재 상태 뿐만 아니라 이전의 상태까지도 꼼꼼하게 레코딩하는 것을 통해서 과거의 어느 시점으로 돌아가서 이 애플리케이션의 시점이 무엇인가를 찾는 것을 통해서 문제 해결을 하는 것을 쉽게 도와준다
+- module reloading 가능
+
+## 구성
+### store
+- redux의 핵심
+- state : 실제 정보가 저장됨
+- reducer : 함수
+- dispatch
+
+### render
+- UI를 만들어주는 부분 
+
+## 진행순서
+- render -> dispatch -> state -> dispatch -> render -> UI 반영
+- state 값이 바뀔 때마다 render가 실행된다면 좋지 않을까? -> 이 때 사용하는 게 subscribe
+- subscribe에 등록해두면 state가 바뀔 때마다 UI가 갱신된다
+![사진](./img/redux.jpg)
+  
+## redux의 특징
+- 중앙집중적인 데이터 스토어를 통해서 애플리케이션을 쉽게 개발할 수 있다
+- 시간여행이 가능하다 (크롬 확장프로그램 이용)
+
