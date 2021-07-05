@@ -151,3 +151,8 @@
 - Object.assign({}, {name:''}, {city:''});
   - -> {name:'', city:''}
   - 첫번째 인자에는 빈 객체를 주어야 함
+
+## 마무리
+- react와 단짝
+- 준수한 생태계
+- Immutability
