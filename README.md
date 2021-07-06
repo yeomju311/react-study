@@ -172,3 +172,8 @@
   - state : 데이터
   - action : 데이터에 가해져야 하는 여러가지 행위들
   - 기본적으로 state를 return
+
+## react 컴포넌트에서 redux에 종속된 기능을 제거
+store를 사용하면 컴포넌트 재사용이 불가할 수도 있다
+-> wrapping을 사용해 해결
+
