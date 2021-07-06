@@ -158,7 +158,6 @@
 - Immutability
 
 
-
 # React Redux
 ## React
 - 사용자 정의 태그(컴포넌트)를 만들어서 체계적이고 잘 정돈된 애플리케이션을 만들게 해주는 기술
@@ -177,3 +176,12 @@
 store를 사용하면 컴포넌트 재사용이 불가할 수도 있다
 -> wrapping을 사용해 해결
 
+
+# React-Redux
+`npm install react-redux`
+- 기존 containers에서 했던 작업을 connect 함수를 이용해 간단하게 바꿀 수 있다
+- `connect()()`의 모습을 하고 있음
+  - 첫번째 ()에서는 `mapStateToProps`, `mapDispatchToProps` 함수 두 개를 인자로 받음
+    - mapStateToProps : redux의 store의 state를 react의 props로 전달, 매핑시켜주는 정보를 담은 함수
+    - mapDispatchToProps : redux의 dispatch를 react의 컴포넌트의 props로 연결시켜주는 정보를 담고 있는 함수를 만들어 공금해주면 복잡한 작업은 알아서 해줌 
+  - 두 번째 ()에서는 wrapping할 컴포넌트를 넣어줌 
