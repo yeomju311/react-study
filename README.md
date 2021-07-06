@@ -166,3 +166,9 @@
 - 상태를 중앙에서 관리하는 것을 통해서 데이터가 우리가 예측하지 않은대로 변형되는 가능성을 낮춰주는 기술
 둘 모두 개발의 복잡성을 낮춰준다
 
+## createStore
+- 첫 번째 인자 : reducer(함수)
+  - reducer의 인자 : state, action
+  - state : 데이터
+  - action : 데이터에 가해져야 하는 여러가지 행위들
+  - 기본적으로 state를 return
